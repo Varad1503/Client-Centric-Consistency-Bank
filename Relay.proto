@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+message Request {
+	string interface = 1;
+	int32 money = 2;
+    int32 id = 3;
+	repeated int32 WriteSet = 4;
+}
+
+message Response {
+	string interface = 1;
+	int32 balance = 2;
+    int32 id = 3;
+	int32 branch = 4;
+	string result = 5;
+	repeated int32 WriteSet = 6;
+}
+
+service Branch {
+	rpc Cast(Request) returns (Response) {}
+	rpc Deliver(Request) returns (Response) {}
+}
